@@ -20,15 +20,24 @@ const initialState= {
 };
 
 const App = () => {
-  const [data, setData] = useState();
   const [video, setVideo] = useState(initialState);
   const [searcher, setSearcher] = useState('dinosaur');
-
+  
+  
   const url = `${YOUTUBE_API_URL}?part=snippet&q=${searcher}&type=video&key=${KEY}`;
+  const [data, setData] = useState();
 
-  useEffect(() => {      
-    fetch(url).then((res)=> res.json()).then((elements) =>  setData({...elements, pageInfo: {totalResults: 1000000,resultsPerPage: 20}}));    
-  }, []);
+  const fetchApi = async () => {
+    const response = await fetch(url)
+    const responseJSON = await response.json()
+    const videosXPage = responseJSON.pageInfo= {totalResults: 1000000,resultsPerPage: 20};
+    setData({...responseJSON, videosXPage});
+  }
+
+  useEffect(()=>{
+    fetchApi();
+  },[])
+
 
   return (
     <BrowserRouter>

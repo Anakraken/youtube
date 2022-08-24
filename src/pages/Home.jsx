@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 import styled from 'styled-components';
-import { device } from '../Theme';
+import { device } from '../resources/Theme';
 
 const Container = styled.div`
     text-align: center;

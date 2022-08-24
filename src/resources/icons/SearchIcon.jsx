@@ -1,5 +1,5 @@
 import React from "react";
-import {colors} from '../../Theme';
+import {colors} from '../Theme';
 import styled from 'styled-components';
 
 const Container = styled.svg`

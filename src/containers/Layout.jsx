@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
-import { colors } from '../Theme';
+import { colors } from '../resources/Theme';
 import { VideoContext } from '../resources/state/videoContext';
 
 const Container = styled.div`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {colors} from '../../Theme';
+import {colors} from '../../resources/Theme';
 
 const Header = styled.div`
     background: ${({dark})=> ( dark ? colors.dark : colors.secondary)};

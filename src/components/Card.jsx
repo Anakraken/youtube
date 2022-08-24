@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { colors, device} from '../Theme';
+import { colors, device} from '../resources/Theme';
 import NotFound from '../resources/noimage.png';
 import { useNavigate } from "react-router-dom";
 

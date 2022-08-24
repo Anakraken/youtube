@@ -8,9 +8,7 @@ import Layout from './containers/Layout';
 import Home from './pages/Home';
 import Videos from './pages/Videos';
 import { VideoContext } from './resources/state/videoContext';
-
-const YOUTUBE_API_URL= 'https://www.googleapis.com/youtube/v3/search';
-const KEY = 'AIzaSyDcmvhajFZY_7MjXmJJVAkHxBXy1gsR3Ps';
+import useAPI from './state/useAPI';
 
 const initialState= {
   id:'',
@@ -23,20 +21,15 @@ const App = () => {
   const [video, setVideo] = useState(initialState);
   const [searcher, setSearcher] = useState('dinosaur');
   
-  
-  const url = `${YOUTUBE_API_URL}?part=snippet&q=${searcher}&type=video&key=${KEY}`;
-  const [data, setData] = useState();
-
-  const fetchApi = async () => {
-    const response = await fetch(url)
-    const responseJSON = await response.json()
-    const videosXPage = responseJSON.pageInfo= {totalResults: 1000000,resultsPerPage: 20};
-    setData({...responseJSON, videosXPage});
-  }
+  const {
+    data,
+    loading,
+    error
+  } = useAPI(searcher);
 
   useEffect(()=>{
-    fetchApi();
-  },[])
+      console.log("loading", loading)
+  },[loading])
 
 
   return (

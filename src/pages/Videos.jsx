@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import styled from 'styled-components';
 import ItemList from '../components/ItemList';
-import { device } from '../Theme';
+import { device } from '../resources/Theme';
 import { VideoContext } from '../resources/state/videoContext';
 
 const Grid = styled.div`

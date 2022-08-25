@@ -19,8 +19,8 @@ const Grid = styled.div`
       grid-template-columns: repeat(auto-fill, 280px);
     }
 `;
-const Home = ({ setVideo }) => {
-  const {data} = useContext(VideoContext);
+const Home = () => {
+  const {data, setVideo} = useContext(VideoContext);
     
   const handleData = (info) => {
     const tag = info.id.videoId || info.id.channelId;    

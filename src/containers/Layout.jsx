@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import { colors } from '../resources/Theme';
-import { VideoContext } from '../resources/state/videoContext';
+import { VideoContext } from '../state/videoProvider';
 
 const Container = styled.div`
     padding-top: 70px;
@@ -16,8 +16,9 @@ const Background = styled.div`
     color: ${({dark})=>(dark ? colors.clear : colors.primary)};
 `;
 
-const Layout =({children, setTheme, searcher, setSearcher}) => {
-  const theme = useContext(VideoContext);    
+const Layout =({children, setTheme}) => {
+  const theme = useContext(VideoContext);
+
   const [dark, setDark] = useState(theme.theme);
 
   const handleTheme = () => {
@@ -41,8 +42,6 @@ const Layout =({children, setTheme, searcher, setSearcher}) => {
       <Navbar 
       dark={dark} 
       setDark={handleTheme} 
-      searcher={searcher} 
-      setSearcher={setSearcher}
       />
      
       <Container style={dark ? night : light}>

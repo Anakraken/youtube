@@ -11,6 +11,14 @@ const VideoProvider = ({children}) => {
     loading,
     error
   } = useAPI(searcher);
+
+  const initialState= {
+    id:'',
+    title:'',
+    description: '',
+    theme: false
+  };
+  const [video, setVideo] = useState(initialState); 
   
   return (
     <VideoContext.Provider 
@@ -19,7 +27,9 @@ const VideoProvider = ({children}) => {
       setSearcher,
       data,
       loading,
-      error
+      error,
+      video,
+      setVideo
     }}
     >
       {children}

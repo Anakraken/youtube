@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import styled from 'styled-components';
 import ItemList from '../components/ItemList';
 import { device } from '../resources/Theme';
-import { VideoContext } from '../resources/state/videoContext';
+import { VideoContext } from '../state/videoProvider';
 
 const Grid = styled.div`
     display: grid;
@@ -34,9 +34,9 @@ const List = styled.div`
     grid-template-rows: repeat(auto-fit, 100px);
     overflow-y: auto;
 `;
-const Videos = ({data}) => {
-   
-    const video = useContext(VideoContext);    
+const Videos = () => {
+    const {data, video} = useContext(VideoContext);    
+    
     const [videoInfo, setVideoInfo] = useState(video);
 
     const selectedVideo = (info, {videoId,channelId}) => {

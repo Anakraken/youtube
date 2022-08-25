@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -7,34 +7,16 @@ import {
 import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Videos from '../pages/Videos';
-import { VideoContext } from '../resources/state/videoContext';
-
-const initialState= {
-  id:'',
-  title:'',
-  description: '',
-  theme: false
-};
 
 const App = () => {
-  const [video, setVideo] = useState(initialState); 
-
   return (
     <BrowserRouter>
-      <VideoContext.Provider value={video}>
-        <Layout setTheme={setVideo}>
+        <Layout>
           <Routes>
-            <Route exact path='/' element={<Home setVideo={setVideo}/>}/>
-            <Route path='/videos' 
-            element={
-              <Videos 
-              video={video} 
-              setVideo={setVideo}
-              />
-            }/>
+            <Route exact path='/' element={<Home/>}/>
+            <Route path='/videos'element={<Videos/>}/>
           </Routes>
         </Layout>
-      </VideoContext.Provider>
     </BrowserRouter>
   );
 }

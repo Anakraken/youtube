@@ -24,7 +24,7 @@ const useAPI = (searcher) => {
         }catch(error) {
             setError(error)
         }
-    },[])
+    },[searcher])
      
   
     return{

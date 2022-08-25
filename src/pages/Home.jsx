@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import Card from '../components/Card';
 import styled from 'styled-components';
 import { device } from '../resources/Theme';
+import { VideoContext } from '../state/videoProvider';
 
 const Container = styled.div`
     text-align: center;
@@ -17,7 +19,8 @@ const Grid = styled.div`
       grid-template-columns: repeat(auto-fill, 280px);
     }
 `;
-const Home = ({ data, setVideo }) => {
+const Home = ({ setVideo }) => {
+  const {data} = useContext(VideoContext);
     
   const handleData = (info) => {
     const tag = info.id.videoId || info.id.channelId;    

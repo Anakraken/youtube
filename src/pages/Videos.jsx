@@ -35,6 +35,7 @@ const List = styled.div`
     overflow-y: auto;
 `;
 const Videos = ({data}) => {
+   
     const video = useContext(VideoContext);    
     const [videoInfo, setVideoInfo] = useState(video);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext }from 'react';
 import {
     Header,
     Container,
@@ -13,15 +13,20 @@ import SearchIcon from '../../resources/icons/SearchIcon';
 import UserIcon from '../../resources/icons/UserIcon';
 import SwitchButton from '../SwitchButton/SwitchButton';
 import { useNavigate } from "react-router-dom";
+import { VideoContext } from '../../state/videoProvider';
 
-const Navbar = ({dark, disabled, setDark, searcher, setSearcher}) => {
-    
+const Navbar = ({dark, disabled, setDark}) => {
     let navigate = useNavigate();
-    
+    const {searcher, setSearcher} = useContext(VideoContext);
+
     const onClick = async (e) => {
         e.preventDefault();
         navigate(`/`);
     };
+
+    const onSearch = (e) =>{
+        setSearcher(e.target.value)
+    }
 
     return (
         <>
@@ -34,10 +39,9 @@ const Navbar = ({dark, disabled, setDark, searcher, setSearcher}) => {
                     <SearchIcon />
                     <input 
                     placeholder="Search…" 
-                    type="text" 
-                    aria-label="search" 
+                    type="text"  
                     value={searcher}
-                    onChange={(e)=>setSearcher(e.value)}
+                    onChange={onSearch}
                     />
                 </Searcher>
                 <Menu>

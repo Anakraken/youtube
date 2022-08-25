@@ -7,29 +7,35 @@ import {
 import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Videos from '../pages/Videos';
-import { VideoContext } from '../state/videoContext';
+import { VideoContext } from '../resources/state/videoContext';
 
-const App = () => {  
-    
+const initialState= {
+  id:'',
+  title:'',
+  description: '',
+  theme: false
+};
+
+const App = () => {
+  const [video, setVideo] = useState(initialState); 
+
   return (
-    <>TEST</>
-    // <BrowserRouter>
-    //   <VideoContext.Provider value={video}>
-    //     <Layout setTheme={setVideo} searcher={searcher} setSearcher={setSearcher}>
-    //       <Routes>
-    //         <Route exact path='/' element={<Home data={data} setVideo={setVideo}/>}/>
-    //         <Route path='/videos' 
-    //         element={
-    //           <Videos 
-    //           data={data} 
-    //           video={video} 
-    //           setVideo={setVideo}
-    //           />
-    //         }/>
-    //       </Routes>
-    //     </Layout>
-    //   </VideoContext.Provider>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <VideoContext.Provider value={video}>
+        <Layout setTheme={setVideo}>
+          <Routes>
+            <Route exact path='/' element={<Home setVideo={setVideo}/>}/>
+            <Route path='/videos' 
+            element={
+              <Videos 
+              video={video} 
+              setVideo={setVideo}
+              />
+            }/>
+          </Routes>
+        </Layout>
+      </VideoContext.Provider>
+    </BrowserRouter>
   );
 }
 

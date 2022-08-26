@@ -12,6 +12,7 @@ const Container = styled.svg`
     &:hover{
       -webkit-animation: rotate-center 0.6s ease-in-out both;
 	    animation: rotate-center 0.6s ease-in-out both;
+      background: ${({dark})=> (dark ? colors.secondary : colors.clear)}; 
     }
 
     @-webkit-keyframes rotate-center {

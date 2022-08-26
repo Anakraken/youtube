@@ -1,48 +1,26 @@
 import React, {useContext, useState} from 'react';
-import styled from 'styled-components';
-import ItemList from '../components/ItemList';
-import { device } from '../resources/Theme';
-import { VideoContext } from '../state/videoProvider';
+import ItemList from '../../components/ItemList';
+import { VideoContext } from '../../state/videoProvider';
+import {
+    Grid,
+    Container,
+    List
+} from './styles';
 
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 70% 30%;
-    column-gap: 20px;
-    height: 60vh;
-        
-    @media ${device.mobile} { 
-        grid-template-columns: 100%;
-    }
-`;
-const Container = styled.div`
-    p{
-        margin-top: 10px;
-    }
-    h3{
-        margin-top: 15px;
-    }
-    iframe{
-        width: 100%;
-        height: 100%;
-    }
-`;
-const List = styled.div`
-    height: 100%;
-    display: grid;
-    row-gap: 10px;
-    align-items: baseline;
-    grid-template-rows: repeat(auto-fit, 100px);
-    overflow-y: auto;
-`;
 const Videos = () => {
     const {data, video} = useContext(VideoContext);    
     
     const [videoInfo, setVideoInfo] = useState(video);
 
     const selectedVideo = (info, {videoId,channelId}) => {
-        const tag = videoId || channelId;    
-        setVideoInfo({title: info.snippet.title, description: info.snippet.description, id: tag})
-    }
+        const tag = videoId || channelId; 
+        const newInfo = {
+            title: info.snippet.title, 
+            description: info.snippet.description, 
+            id: tag
+        };   
+        setVideoInfo(newInfo);
+    };
 
     return (
         <Grid>

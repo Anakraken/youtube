@@ -15,7 +15,7 @@ const Container = styled.div`
     padding-top: 70px;
     width: 95%;
     margin: 0 auto;
-    padding-bottom: 80px;;
+    padding-bottom: 80px;
 `;
 const Background = styled.div`
     min-height: 100vh;

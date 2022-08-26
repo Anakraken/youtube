@@ -13,14 +13,14 @@ const useAPI = (searcher) => {
     const fetchApi = async () => {
         const response = await fetch(url)
         const responseJSON = await response.json()
-        const videosXPage = responseJSON.pageInfo= {totalResults: 1000000,resultsPerPage: 20};
-        setData({...responseJSON, videosXPage});
+        setData(responseJSON);
     }
 
     useEffect(()=>{
         try{
             fetchApi();
             setLoading(false);
+            console.log(data)
         }catch(error) {
             setError(error)
         }

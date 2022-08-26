@@ -14,7 +14,7 @@ const App = () => (
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route exact path='/' element={<Home/>}/>
+            <Route exact path='/youtube' element={<Home/>}/>
             <Route path='/videos'element={<Videos/>}/>
           </Routes>
         </Layout>

@@ -15,7 +15,7 @@ const SideNav = () => {
     
     const onClick = async (e) => {
         e.preventDefault();
-        navigate(`/`);
+        navigate(`/youtube`);
     };
 
   return (

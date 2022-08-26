@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <>
       <Container >
-        <h1>Welcome to the Challenge!</h1>
+        <h1>Welcome!</h1>
       </Container>
 
       <Grid>
